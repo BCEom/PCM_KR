@@ -6,10 +6,15 @@
         <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
-        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
-        <link rel="stylesheet" href="css/leaflet-measure.css">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <!--
+            <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
+            <link rel="stylesheet" href="css/leaflet-measure.css">
+        -->
+        
         <style>
         .line{border-bottom:1px solid black;}
 
@@ -26,25 +31,29 @@
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
-        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
-        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/L.Control.Locate.min.js"></script>
+        <!-- 비활성
+            <script src="js/leaflet.rotatedMarker.js"></script>
+        -->
         <script src="js/leaflet.pattern.js"></script>
         <script src="js/leaflet-hash.js"></script>
         <script src="js/Autolinker.min.js"></script>
-        <script src="js/rbush.min.js"></script>
-        <script src="js/labelgun.min.js"></script>
-        <script src="js/labels.js"></script>
-        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
-        <script src="js/leaflet-measure.js"></script>
+        <!-- 비활성
+            <script src="js/rbush.min.js"></script>
+            <script src="js/labelgun.min.js"></script>
+            <script src="js/labels.js"></script>
+            <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
+            <script src="js/leaflet-measure.js"></script>
+        -->
         <script src="data/04_Working_NOAL_1.js"></script>
         <script src="data/03_Working_CEMO_2.js"></script>
         <script src="data/02_Working_SOSU_3.js"></script>
         <script src="data/01_Working_WT_4.js"></script>
-        <script>
-        
+        <script> 
         // zoomControl 비활성, 기본값 true
         var map = L.map('map', {
-            zoomControl:false, maxZoom:19, minZoom:5
+            zoomControl:false, maxZoom:16, minZoom:6
         })
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('B. Eom | <a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
