@@ -278,16 +278,14 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	border-radius: 4px;
 	}
 .leaflet-bar a{
-
 	color: black;
 	}
 .leaflet-bar a:hover {
-
 	color: black;
 	}
 .leaflet-bar a,
 .leaflet-control-layers-toggle {
-	background-position: 100% 100%;
+	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	background-color: #0078A8;
 	color: black;
