@@ -2389,8 +2389,8 @@
 	padding-right: 30px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	background-color: darkorange;
-	color: black;
+	background-color: #ff8c00;
+	color: #000000;
 }
 
 .fa-map-pin::before {
