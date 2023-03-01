@@ -2384,10 +2384,10 @@
 	content: "\f3c5";
 	border: 2px solid rgb(110, 61, 0);
 	border-radius: 10%;
-	padding-left: 30px;
-	padding-right: 30px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 8px;
+	padding-bottom: 8px;
 	background-color: #f5d0a6;
 	color: #000000;
 }
@@ -3352,10 +3352,10 @@
 	content: "\f110";
 	border: 2px solid rgb(110, 61, 0);
 	border-radius: 10%;
-	padding-left: 30px;
-	padding-right: 30px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 8px;
+	padding-bottom: 8px;
 	background-color: #f5d0a6;
 	color: #000000;
 }
