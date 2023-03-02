@@ -2,7 +2,6 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
         <meta name="mobile-web-app-capable" content="yes">
@@ -11,14 +10,9 @@
         <link rel="stylesheet" href="css/L.Control.Locate.min.css">
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <!--
-            <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
-            <link rel="stylesheet" href="css/leaflet-measure.css">
-        -->
-        
+        <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
+        <link rel="stylesheet" href="css/leaflet-measure.css">
         <style>
-        .line{border-bottom:1px solid black;}
-
         html, body, #map {
             width: 100%;
             height: 100%;
@@ -34,40 +28,37 @@
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script>
         <script src="js/L.Control.Locate.min.js"></script>
-        <!-- 비활성
-            <script src="js/leaflet.rotatedMarker.js"></script>
-        -->
+        <script src="js/leaflet.rotatedMarker.js"></script>
         <script src="js/leaflet.pattern.js"></script>
         <script src="js/leaflet-hash.js"></script>
         <script src="js/Autolinker.min.js"></script>
-        <!-- 비활성
-            <script src="js/rbush.min.js"></script>
-            <script src="js/labelgun.min.js"></script>
-            <script src="js/labels.js"></script>
-            <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
-            <script src="js/leaflet-measure.js"></script>
-        -->
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
+        <script src="js/leaflet-measure.js"></script>
         <script src="data/04_Working_NOAL_1.js"></script>
         <script src="data/03_Working_CEMO_2.js"></script>
         <script src="data/02_Working_SOSU_3.js"></script>
         <script src="data/01_Working_WT_4.js"></script>
-        <script> 
+
+        <script>
         // zoomControl 비활성, 기본값 true
         var map = L.map('map', {
-            zoomControl:false, maxZoom:16, minZoom:6
+            zoomControl:false, maxZoom:19, minZoom:5
         })
         var hash = new L.Hash(map);
-        map.attributionControl.setPrefix('B. Eom | <a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
-        
+
         /* mesureControl 비활성
         var measureControl = new L.Control.Measure({
             position: 'topleft',
             primaryLengthUnit: 'meters',
             secondaryLengthUnit: 'kilometers',
-            primary면적(㎢)Unit: 'sqmeters',
-            secondary면적(㎢)Unit: 'hectares'
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'hectares'
         });
         measureControl.addTo(map);
         document.getElementsByClassName('leaflet-control-measure-toggle')[0]
@@ -86,11 +77,10 @@
         map.getPane('pane_OSMStandard_0').style.zIndex = 400;
         var layer_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             pane: 'pane_OSMStandard_0',
-            // map opacity 조정 기본값: 1.0
-            opacity: 0.6,
+            opacity: 0.5,
             attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
-            minZoom: 6,
-            maxZoom: 17,
+            minZoom: 7,
+            maxZoom: 16,
             minNativeZoom: 0,
             maxNativeZoom: 19
         });
@@ -126,14 +116,14 @@
                 case 'NOAL–SubWet_t/SubWet_a':
                     return {
                 pane: 'pane_04_Working_NOAL_1',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(234,191,255,1.0)',
                 interactive: true,
             }
@@ -141,14 +131,14 @@
                 case 'NOAL–SubWet_t/Wet_a':
                     return {
                 pane: 'pane_04_Working_NOAL_1',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(182,127,208,1.0)',
                 interactive: true,
             }
@@ -156,14 +146,14 @@
                 case 'NOAL–Wet_t/SubWet_a':
                     return {
                 pane: 'pane_04_Working_NOAL_1',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(129,64,162,1.0)',
                 interactive: true,
             }
@@ -171,14 +161,14 @@
                 case 'NOAL–Wet_t/Wet_a':
                     return {
                 pane: 'pane_04_Working_NOAL_1',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(77,0,115,1.0)',
                 interactive: true,
             }
@@ -229,14 +219,14 @@
                 case 'CEMO–Dry_t/SubDry_a':
                     return {
                 pane: 'pane_03_Working_CEMO_2',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(231,227,252,1.0)',
                 interactive: true,
             }
@@ -244,14 +234,14 @@
                 case 'CEMO–Dry_t/Mesic_a':
                     return {
                 pane: 'pane_03_Working_CEMO_2',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(216,215,249,1.0)',
                 interactive: true,
             }
@@ -259,14 +249,14 @@
                 case 'CEMO–Mesic_t/SubDry_a':
                     return {
                 pane: 'pane_03_Working_CEMO_2',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(202,199,242,1.0)',
                 interactive: true,
             }
@@ -274,14 +264,14 @@
                 case 'CEMO–Mesic_t/Mesic_a':
                     return {
                 pane: 'pane_03_Working_CEMO_2',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(189,187,237,1.0)',
                 interactive: true,
             }
@@ -289,14 +279,14 @@
                 case 'CEMO–Mesic_t/SubWet_a':
                     return {
                 pane: 'pane_03_Working_CEMO_2',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(175,174,234,1.0)',
                 interactive: true,
             }
@@ -304,14 +294,14 @@
                 case 'CEMO–Mesic_t/Wet_a':
                     return {
                 pane: 'pane_03_Working_CEMO_2',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(164,163,229,1.0)',
                 interactive: true,
             }
@@ -319,14 +309,14 @@
                 case 'CEMO–SubDry_t/SubDry_a':
                     return {
                 pane: 'pane_03_Working_CEMO_2',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(151,154,223,1.0)',
                 interactive: true,
             }
@@ -334,14 +324,14 @@
                 case 'CEMO–SubDry_t/Mesic_a':
                     return {
                 pane: 'pane_03_Working_CEMO_2',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(140,147,217,1.0)',
                 interactive: true,
             }
@@ -349,14 +339,14 @@
                 case 'CEMO–SubDry_t/SubWet_a':
                     return {
                 pane: 'pane_03_Working_CEMO_2',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(132,138,214,1.0)',
                 interactive: true,
             }
@@ -364,14 +354,14 @@
                 case 'CEMO–SubWet_t/SubDry_a':
                     return {
                 pane: 'pane_03_Working_CEMO_2',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(121,135,210,1.0)',
                 interactive: true,
             }
@@ -379,14 +369,14 @@
                 case 'CEMO–SubWet_t/Mesic_a':
                     return {
                 pane: 'pane_03_Working_CEMO_2',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(111,129,205,1.0)',
                 interactive: true,
             }
@@ -394,14 +384,14 @@
                 case 'CEMO–SubWet_t/SubWet_a':
                     return {
                 pane: 'pane_03_Working_CEMO_2',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(104,124,197,1.0)',
                 interactive: true,
             }
@@ -409,14 +399,14 @@
                 case 'CEMO–SubWet_t/Wet_a':
                     return {
                 pane: 'pane_03_Working_CEMO_2',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(94,120,195,1.0)',
                 interactive: true,
             }
@@ -424,14 +414,14 @@
                 case 'CEMO–Wet_t/Mesic_a':
                     return {
                 pane: 'pane_03_Working_CEMO_2',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(88,115,192,1.0)',
                 interactive: true,
             }
@@ -439,14 +429,14 @@
                 case 'CEMO–Wet_t/SubWet_a':
                     return {
                 pane: 'pane_03_Working_CEMO_2',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(81,114,185,1.0)',
                 interactive: true,
             }
@@ -454,14 +444,14 @@
                 case 'CEMO–Wet_t/Wet_a':
                     return {
                 pane: 'pane_03_Working_CEMO_2',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(74,111,181,1.0)',
                 interactive: true,
             }
@@ -512,14 +502,14 @@
                 case 'SOSU–Dry_t/Dry_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(250,75,75,1.0)',
                 interactive: true,
             }
@@ -527,14 +517,14 @@
                 case 'SOSU–Dry_t/SubDry_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(254,91,76,1.0)',
                 interactive: true,
             }
@@ -542,14 +532,14 @@
                 case 'SOSU–Dry_t/Mesic_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(255,112,76,1.0)',
                 interactive: true,
             }
@@ -557,14 +547,14 @@
                 case 'SOSU–SubDry_t/Dry_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(250,133,79,1.0)',
                 interactive: true,
             }
@@ -572,14 +562,14 @@
                 case 'SOSU–SubDry_t/SubDry_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(250,149,97,1.0)',
                 interactive: true,
             }
@@ -587,14 +577,14 @@
                 case 'SOSU–SubDry_t/Mesic_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(255,166,86,1.0)',
                 interactive: true,
             }
@@ -602,14 +592,14 @@
                 case 'SOSU–SubDry_t/SubWet_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(255,179,93,1.0)',
                 interactive: true,
             }
@@ -617,14 +607,14 @@
                 case 'SOSU–SubDry_t/Wet_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(255,196,96,1.0)',
                 interactive: true,
             }
@@ -632,14 +622,14 @@
                 case 'SOSU–Mesic_t/Dry_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(255,211,102,1.0)',
                 interactive: true,
             }
@@ -647,14 +637,14 @@
                 case 'SOSU–Mesic_t/SubDry_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(251,227,103,1.0)',
                 interactive: true,
             }
@@ -662,14 +652,14 @@
                 case 'SOSU–Mesic_t/Mesic_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(253,241,105,1.0)',
                 interactive: true,
             }
@@ -677,14 +667,14 @@
                 case 'SOSU–Mesic_t/SubWet_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(255,254,110,1.0)',
                 interactive: true,
             }
@@ -692,14 +682,14 @@
                 case 'SOSU–Mesic_t/Wet_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(212,246,108,1.0)',
                 interactive: true,
             }
@@ -707,14 +697,14 @@
                 case 'SOSU–SubWet_t/Dry_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(178,239,99,1.0)',
                 interactive: true,
             }
@@ -722,14 +712,14 @@
                 case 'SOSU–SubWet_t/SubDry_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(146,229,95,1.0)',
                 interactive: true,
             }
@@ -737,14 +727,14 @@
                 case 'SOSU–SubWet_t/Mesic_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(111,222,92,1.0)',
                 interactive: true,
             }
@@ -752,14 +742,14 @@
                 case 'SOSU–SubWet_t/SubWet_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(89,214,96,1.0)',
                 interactive: true,
             }
@@ -767,14 +757,14 @@
                 case 'SOSU–SubWet_t/Wet_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(85,206,113,1.0)',
                 interactive: true,
             }
@@ -782,14 +772,14 @@
                 case 'SOSU–Wet_t/Dry_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(84,197,135,1.0)',
                 interactive: true,
             }
@@ -797,14 +787,14 @@
                 case 'SOSU–Wet_t/SubDry_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(78,189,157,1.0)',
                 interactive: true,
             }
@@ -812,14 +802,14 @@
                 case 'SOSU–Wet_t/Mesic_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(76,180,173,1.0)',
                 interactive: true,
             }
@@ -827,14 +817,14 @@
                 case 'SOSU–Wet_t/SubWet_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(82,159,167,1.0)',
                 interactive: true,
             }
@@ -842,14 +832,14 @@
                 case 'SOSU–Wet_t/Wet_a':
                     return {
                 pane: 'pane_02_Working_SOSU_3',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(72,135,166,1.0)',
                 interactive: true,
             }
@@ -900,14 +890,14 @@
                 case 'WT–Dry_t/Dry_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(255,0,0,1.0)',
                 interactive: true,
             }
@@ -915,14 +905,14 @@
                 case 'WT–Dry_t/SubDry_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(255,24,5,1.0)',
                 interactive: true,
             }
@@ -930,14 +920,14 @@
                 case 'WT–Dry_t/SubWet_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(255,49,10,1.0)',
                 interactive: true,
             }
@@ -945,14 +935,14 @@
                 case 'WT–Dry_t/Wet_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(255,73,15,1.0)',
                 interactive: true,
             }
@@ -960,14 +950,14 @@
                 case 'WT–SubDry_t/Dry_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(255,97,19,1.0)',
                 interactive: true,
             }
@@ -975,14 +965,14 @@
                 case 'WT–SubDry_t/SubDry_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(255,121,24,1.0)',
                 interactive: true,
             }
@@ -990,14 +980,14 @@
                 case 'WT–SubDry_t/SubWet_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(255,146,29,1.0)',
                 interactive: true,
             }
@@ -1005,14 +995,14 @@
                 case 'WT–SubDry_t/Wet_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(255,170,34,1.0)',
                 interactive: true,
             }
@@ -1020,14 +1010,14 @@
                 case 'WT–Mesic_t/Dry_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(255,194,39,1.0)',
                 interactive: true,
             }
@@ -1035,14 +1025,14 @@
                 case 'WT–Mesic_t/SubDry_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(255,219,44,1.0)',
                 interactive: true,
             }
@@ -1050,14 +1040,14 @@
                 case 'WT–Mesic_t/Mesic_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(255,243,49,1.0)',
                 interactive: true,
             }
@@ -1065,14 +1055,14 @@
                 case 'WT–Mesic_t/SubWet_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(243,247,55,1.0)',
                 interactive: true,
             }
@@ -1080,14 +1070,14 @@
                 case 'WT–Mesic_t/Wet_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(219,231,62,1.0)',
                 interactive: true,
             }
@@ -1095,14 +1085,14 @@
                 case 'WT–SubWet_t/Dry_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(194,215,69,1.0)',
                 interactive: true,
             }
@@ -1110,14 +1100,14 @@
                 case 'WT–SubWet_t/SubDry_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(170,198,77,1.0)',
                 interactive: true,
             }
@@ -1125,14 +1115,14 @@
                 case 'WT–SubWet_t/Mesic_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(146,182,84,1.0)',
                 interactive: true,
             }
@@ -1140,14 +1130,14 @@
                 case 'WT–SubWet_t/SubWet_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(121,166,91,1.0)',
                 interactive: true,
             }
@@ -1155,14 +1145,14 @@
                 case 'WT–SubWet_t/Wet_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(97,150,99,1.0)',
                 interactive: true,
             }
@@ -1170,14 +1160,14 @@
                 case 'WT–Wet_t/Dry_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(73,134,106,1.0)',
                 interactive: true,
             }
@@ -1185,14 +1175,14 @@
                 case 'WT–Wet_t/SubDry_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(49,117,113,1.0)',
                 interactive: true,
             }
@@ -1200,14 +1190,14 @@
                 case 'WT–Wet_t/Mesic_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(24,101,121,1.0)',
                 interactive: true,
             }
@@ -1215,14 +1205,14 @@
                 case 'WT–Wet_t/SubWet_a':
                     return {
                 pane: 'pane_01_Working_WT_4',
-                opacity: 1,
+                opacity: 0.6,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 0.6,
+                fillOpacity: 0.5,
                 fillColor: 'rgba(0,85,128,1.0)',
                 interactive: true,
             }
@@ -1243,6 +1233,7 @@
         });
         bounds_group.addLayer(layer_01_Working_WT_4);
         map.addLayer(layer_01_Working_WT_4);
+        
         /* title 비활성
             var title = new L.Control();
             title.onAdd = function (map) {
