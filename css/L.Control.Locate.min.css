@@ -3,13 +3,11 @@
 }
 
 .leaflet-control-locate.active a {
-    font-size: 5em;
-    color: #2074B6
+    font-size: 3em;
 }
 
 .leaflet-control-locate.active.following a {
-    font-size: 5em;
-    color: #FC8428
+    font-size: 3em;
 }
 
 /*# sourceMappingURL=L.Control.Locate.min.css.map */
