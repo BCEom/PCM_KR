@@ -57,7 +57,7 @@
             zoomControl:false, maxZoom:16, minZoom:6
         })
         var hash = new L.Hash(map);
-        map.attributionControl.setPrefix('B. Eom | <a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        map.attributionControl.setPrefix('B. Eom | qgis2web &middot; Leaflet &middot; QGIS');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
         
@@ -88,7 +88,7 @@
             pane: 'pane_OSMStandard_0',
             // map opacity 조정 기본값: 1.0
             opacity: 0.6,
-            attribution: '<a href="https://www.openstreetmap.org/copyright">© OSM contributors, CC-BY-SA</a>',
+            attribution: '© OSM contributors, CC-BY-SA',
             minZoom: 6,
             maxZoom: 17,
             minNativeZoom: 0,
