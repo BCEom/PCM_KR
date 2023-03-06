@@ -3356,6 +3356,11 @@
 	padding-bottom: 8px;
 	background-color: #f5d0a6;
 	color: #000000;
+	animation: spinner .6s linear infinite;
+	animation-duration: 2s;
+}
+@keyframes spinner {
+	to {transform: rotate(360deg);}
 }
 
 .fa-spotify::before {
