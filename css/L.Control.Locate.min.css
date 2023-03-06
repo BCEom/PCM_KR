@@ -1,5 +1,6 @@
 .leaflet-control-locate a {
     font-size: 2em;
+    border-color: #000;
 }
 
 .leaflet-control-locate.active a {
