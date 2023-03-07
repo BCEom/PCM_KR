@@ -99,23 +99,23 @@
         function pop_04_Working_NOAL_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td align=center class="line" colspan="2"><b>' + (feature.properties['PC_SZ'] !== null ? autolinker.link(feature.properties['PC_SZ'].toLocaleString()) : '') + '</b></td>\
+                        <td colspan="2">' + (feature.properties['PC_SZ'] !== null ? autolinker.link(feature.properties['PC_SZ'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">온도대</th>\
-                        <td align=center>' + (feature.properties['온도대'] !== null ? autolinker.link(feature.properties['온도대'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['온도대'] !== null ? autolinker.link(feature.properties['온도대'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">토양습도</th>\
-                        <td align=center>' + (feature.properties['토양습도'] !== null ? autolinker.link(feature.properties['토양습도'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['토양습도'] !== null ? autolinker.link(feature.properties['토양습도'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">대기습도</th>\
-                        <td align=center>' + (feature.properties['대기습도'] !== null ? autolinker.link(feature.properties['대기습도'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['대기습도'] !== null ? autolinker.link(feature.properties['대기습도'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">면적(㎢)</th>\
-                        <td align=center>' + (feature.properties['면적(㎢)'] !== null ? autolinker.link(feature.properties['면적(㎢)'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['면적(㎢)'] !== null ? autolinker.link(feature.properties['면적(㎢)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -201,24 +201,23 @@
         map.addLayer(layer_04_Working_NOAL_1);
         function pop_03_Working_CEMO_2(feature, layer) {
             var popupContent = '<table>\
-                    <tr style=>\
-                        <td align=center class="line" colspan="2"><b>' + (feature.properties['PC_SZ'] !== null ? autolinker.link(feature.properties['PC_SZ'].toLocaleString()) : '') + '</b></td>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PC_SZ'] !== null ? autolinker.link(feature.properties['PC_SZ'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">온도대</th>\
-                        <td align=center>' + (feature.properties['온도대'] !== null ? autolinker.link(feature.properties['온도대'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>온도대</strong><br />' + (feature.properties['온도대'] !== null ? autolinker.link(feature.properties['온도대'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">토양습도</th>\
-                        <td align=center>' + (feature.properties['토양습도'] !== null ? autolinker.link(feature.properties['토양습도'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['토양습도'] !== null ? autolinker.link(feature.properties['토양습도'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">대기습도</th>\
-                        <td align=center>' + (feature.properties['대기습도'] !== null ? autolinker.link(feature.properties['대기습도'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['대기습도'] !== null ? autolinker.link(feature.properties['대기습도'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">면적(㎢)</th>\
-                        <td align=center>' + (feature.properties['면적(㎢)'] !== null ? autolinker.link(feature.properties['면적(㎢)'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['면적(㎢)'] !== null ? autolinker.link(feature.properties['면적(㎢)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -237,7 +236,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 0.6,
-                fillColor: 'rgba(231,227,252,1.0)',
+                fillColor: 'rgba(223,217,255,1.0)',
                 interactive: true,
             }
                     break;
@@ -252,67 +251,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 0.6,
-                fillColor: 'rgba(216,215,249,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'CEMO–Mesic_t/SubDry_a':
-                    return {
-                pane: 'pane_03_Working_CEMO_2',
-                opacity: 0.6,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 0.6,
-                fillColor: 'rgba(202,199,242,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'CEMO–Mesic_t/Mesic_a':
-                    return {
-                pane: 'pane_03_Working_CEMO_2',
-                opacity: 0.6,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 0.6,
-                fillColor: 'rgba(189,187,237,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'CEMO–Mesic_t/SubWet_a':
-                    return {
-                pane: 'pane_03_Working_CEMO_2',
-                opacity: 0.6,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 0.6,
-                fillColor: 'rgba(175,174,234,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'CEMO–Mesic_t/Wet_a':
-                    return {
-                pane: 'pane_03_Working_CEMO_2',
-                opacity: 0.6,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 0.6,
-                fillColor: 'rgba(164,163,229,1.0)',
+                fillColor: 'rgba(208,206,248,1.0)',
                 interactive: true,
             }
                     break;
@@ -327,7 +266,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 0.6,
-                fillColor: 'rgba(151,154,223,1.0)',
+                fillColor: 'rgba(193,195,241,1.0)',
                 interactive: true,
             }
                     break;
@@ -342,7 +281,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 0.6,
-                fillColor: 'rgba(140,147,217,1.0)',
+                fillColor: 'rgba(178,184,235,1.0)',
                 interactive: true,
             }
                     break;
@@ -357,7 +296,67 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 0.6,
-                fillColor: 'rgba(132,138,214,1.0)',
+                fillColor: 'rgba(164,173,228,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'CEMO–Mesic_t/SubDry_a':
+                    return {
+                pane: 'pane_03_Working_CEMO_2',
+                opacity: 0.6,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 0.6,
+                fillColor: 'rgba(149,162,221,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'CEMO–Mesic_t/Mesic_a':
+                    return {
+                pane: 'pane_03_Working_CEMO_2',
+                opacity: 0.6,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 0.6,
+                fillColor: 'rgba(134,151,214,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'CEMO–Mesic_t/SubWet_a':
+                    return {
+                pane: 'pane_03_Working_CEMO_2',
+                opacity: 0.6,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 0.6,
+                fillColor: 'rgba(119,140,207,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'CEMO–Mesic_t/Wet_a':
+                    return {
+                pane: 'pane_03_Working_CEMO_2',
+                opacity: 0.6,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 0.6,
+                fillColor: 'rgba(104,128,201,1.0)',
                 interactive: true,
             }
                     break;
@@ -372,7 +371,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 0.6,
-                fillColor: 'rgba(121,135,210,1.0)',
+                fillColor: 'rgba(89,117,194,1.0)',
                 interactive: true,
             }
                     break;
@@ -387,7 +386,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 0.6,
-                fillColor: 'rgba(111,129,205,1.0)',
+                fillColor: 'rgba(74,106,187,1.0)',
                 interactive: true,
             }
                     break;
@@ -402,7 +401,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 0.6,
-                fillColor: 'rgba(104,124,197,1.0)',
+                fillColor: 'rgba(59,95,180,1.0)',
                 interactive: true,
             }
                     break;
@@ -417,7 +416,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 0.6,
-                fillColor: 'rgba(94,120,195,1.0)',
+                fillColor: 'rgba(45,84,173,1.0)',
                 interactive: true,
             }
                     break;
@@ -432,7 +431,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 0.6,
-                fillColor: 'rgba(88,115,192,1.0)',
+                fillColor: 'rgba(30,73,167,1.0)',
                 interactive: true,
             }
                     break;
@@ -447,7 +446,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 0.6,
-                fillColor: 'rgba(81,114,185,1.0)',
+                fillColor: 'rgba(15,62,160,1.0)',
                 interactive: true,
             }
                     break;
@@ -462,7 +461,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 0.6,
-                fillColor: 'rgba(74,111,181,1.0)',
+                fillColor: 'rgba(0,51,153,1.0)',
                 interactive: true,
             }
                     break;
@@ -485,23 +484,23 @@
         function pop_02_Working_SOSU_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td align=center class="line" colspan="2"><b>' + (feature.properties['PC_SZ'] !== null ? autolinker.link(feature.properties['PC_SZ'].toLocaleString()) : '') + '</b></td>\
+                        <td colspan="2">' + (feature.properties['PC_SZ'] !== null ? autolinker.link(feature.properties['PC_SZ'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">온도대</th>\
-                        <td align=center>' + (feature.properties['온도대'] !== null ? autolinker.link(feature.properties['온도대'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['온도대'] !== null ? autolinker.link(feature.properties['온도대'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">토양습도</th>\
-                        <td align=center>' + (feature.properties['토양습도'] !== null ? autolinker.link(feature.properties['토양습도'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['토양습도'] !== null ? autolinker.link(feature.properties['토양습도'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">대기습도</th>\
-                        <td align=center>' + (feature.properties['대기습도'] !== null ? autolinker.link(feature.properties['대기습도'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['대기습도'] !== null ? autolinker.link(feature.properties['대기습도'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">면적(㎢)</th>\
-                        <td align=center>' + (feature.properties['면적(㎢)'] !== null ? autolinker.link(feature.properties['면적(㎢)'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['면적(㎢)'] !== null ? autolinker.link(feature.properties['면적(㎢)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -873,23 +872,23 @@
         function pop_01_Working_WT_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td align=center class="line" colspan="2"><b>' + (feature.properties['PC_SZ'] !== null ? autolinker.link(feature.properties['PC_SZ'].toLocaleString()) : '') + '</b></td>\
+                        <td colspan="2">' + (feature.properties['PC_SZ'] !== null ? autolinker.link(feature.properties['PC_SZ'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">온도대</th>\
-                        <td align=center>' + (feature.properties['온도대'] !== null ? autolinker.link(feature.properties['온도대'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['온도대'] !== null ? autolinker.link(feature.properties['온도대'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">토양습도</th>\
-                        <td align=center>' + (feature.properties['토양습도'] !== null ? autolinker.link(feature.properties['토양습도'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['토양습도'] !== null ? autolinker.link(feature.properties['토양습도'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">대기습도</th>\
-                        <td align=center>' + (feature.properties['대기습도'] !== null ? autolinker.link(feature.properties['대기습도'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['대기습도'] !== null ? autolinker.link(feature.properties['대기습도'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">면적(㎢)</th>\
-                        <td align=center>' + (feature.properties['면적(㎢)'] !== null ? autolinker.link(feature.properties['면적(㎢)'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['면적(㎢)'] !== null ? autolinker.link(feature.properties['면적(㎢)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -1243,6 +1242,7 @@
         });
         bounds_group.addLayer(layer_01_Working_WT_4);
         map.addLayer(layer_01_Working_WT_4);
+            
         /* title 비활성
             var title = new L.Control();
             title.onAdd = function (map) {
